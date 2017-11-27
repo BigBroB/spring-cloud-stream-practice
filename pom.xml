@@ -27,8 +27,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>cn.com.inlee</groupId>
-			<artifactId>inlee-utils-integration</artifactId>
+			<groupId>team.union.tool</groupId>
+			<artifactId>team.union.tool</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -54,7 +54,12 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+	<repositories>
+		<repository>
+			<id>yeehaw-mvn-repo</id>
+			<url>https://raw.githubusercontent.com/BigBroB/maven-repo/master/repository</url>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>

@@ -6,7 +6,7 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.SendTo;
 
-import cn.com.inlee.utils.JsonUtils;
+import team.union.tool.json.JsonUtils;
 import yeehaw.message.main.message.o.BaseMessage;
 import yeehaw.message.main.msgstream.MessageClient;
 
