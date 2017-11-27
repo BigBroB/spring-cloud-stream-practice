@@ -5,7 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 
-import cn.com.inlee.utils.JsonUtils;
+import team.union.tool.json.JsonUtils;
+
 
 @EnableBinding(MessageClient.class)
 public class MessageReturnClient {

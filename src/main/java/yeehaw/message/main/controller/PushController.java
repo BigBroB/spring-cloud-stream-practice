@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.com.inlee.utils.exception.ThirdAPIException;
+import team.union.tool.exception.BaseException;
 import yeehaw.message.main.MessageSender;
 import yeehaw.message.main.message.o.BaseMessage;
 import yeehaw.message.main.msgstream.MessageClient;
@@ -36,7 +36,7 @@ public class PushController {
 //			Terminal terminal = new Terminal();
 //			terminal.setCell("110");
 //			messageSender.bind(terminal);
-		} catch (ThirdAPIException e) {
+		} catch (BaseException e) {
 			e.printStackTrace();
 //		} catch (UnrecognizableClassException e) {
 //			e.printStackTrace();

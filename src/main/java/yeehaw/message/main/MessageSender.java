@@ -1,8 +1,7 @@
 package yeehaw.message.main;
 
-import cn.com.inlee.utils.exception.ThirdAPIException;
-import cn.com.inlee.utils.exception.UnrecognizableClassException;
-import cn.com.inlee.utils.response.ClientResponse;
+import team.union.tool.exception.BaseException;
+import team.union.tool.response.ClientResponse;
 import yeehaw.message.main.message.o.IMessage;
 import yeehaw.message.main.message.o.Terminal;
 import yeehaw.message.main.message.o.TextMessage;
@@ -16,7 +15,7 @@ public interface MessageSender {
 	 * @return
 	 * @throws ThirdAPIException
 	 */
-	public ClientResponse bind(Terminal terminal) throws ThirdAPIException;
+	public ClientResponse bind(Terminal terminal) throws BaseException;
 
 	/**
 	 * 发送短信随机码
@@ -33,7 +32,7 @@ public interface MessageSender {
 	 * 
 	 * @throws ThirdAPIException
 	 */
-	public ClientResponse sendChallenge(String sn, String source, String cell, String text) throws ThirdAPIException;
+	public ClientResponse sendChallenge(String sn, String source, String cell, String text) throws BaseException;
 
 	/**
 	 * 发送短信
@@ -43,7 +42,7 @@ public interface MessageSender {
 	 * @throws ThirdAPIException
 	 * @throws UnrecognizableClassException
 	 */
-	public ClientResponse sendSM(TextMessage message) throws ThirdAPIException, UnrecognizableClassException;
+	public ClientResponse sendSM(TextMessage message) throws BaseException;
 
 	/**
 	 * 推送信息
@@ -52,7 +51,7 @@ public interface MessageSender {
 	 * @return
 	 * @throws ThirdAPIException
 	 */
-	public ClientResponse push(IMessage message) throws ThirdAPIException;
+	public ClientResponse push(IMessage message) throws BaseException;
 
 	/**
 	 * 异步推送信息
@@ -60,6 +59,6 @@ public interface MessageSender {
 	 * @param message
 	 * @throws ThirdAPIException
 	 */
-	public void pushAsyn(IMessage message) throws ThirdAPIException;
+	public void pushAsyn(IMessage message) throws BaseException;
 
 }

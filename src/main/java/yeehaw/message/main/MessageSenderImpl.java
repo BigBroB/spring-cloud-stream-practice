@@ -7,9 +7,8 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.stereotype.Component;
 
-import cn.com.inlee.utils.exception.ThirdAPIException;
-import cn.com.inlee.utils.exception.UnrecognizableClassException;
-import cn.com.inlee.utils.response.ClientResponse;
+import team.union.tool.exception.BaseException;
+import team.union.tool.response.ClientResponse;
 import yeehaw.message.main.message.o.ChallengeMessage;
 import yeehaw.message.main.message.o.IMessage;
 import yeehaw.message.main.message.o.Terminal;
@@ -40,55 +39,55 @@ public class MessageSenderImpl implements MessageSender {
 	private MessageChannel sms;
 
 	@Override
-	public ClientResponse bind(Terminal terminal) throws ThirdAPIException {
+	public ClientResponse bind(Terminal terminal) throws BaseException {
 		try {
 			messageClient.bind().send(MessageBuilder.withPayload(terminal).build());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ThirdAPIException("访问消息中心失败。");
+			throw new BaseException("访问消息中心失败。");
 		}
 		return ClientResponse.newInstance().ok().builder();
 	}
 
 	@Override
-	public ClientResponse sendChallenge(String sn, String source, String cell, String text) throws ThirdAPIException {
+	public ClientResponse sendChallenge(String sn, String source, String cell, String text) throws BaseException {
 		try {
 			ChallengeMessage message = new ChallengeMessage(sn, source, cell, text);
 			messageClient.challenge().send(MessageBuilder.withPayload(message).build());
 			// challenge.send(MessageBuilder.withPayload(message).build());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ThirdAPIException("访问消息中心失败。");
+			throw new BaseException("访问消息中心失败。");
 		}
 		return ClientResponse.newInstance().ok().builder();
 	}
 
 	@Override
-	public ClientResponse sendSM(TextMessage message) throws ThirdAPIException, UnrecognizableClassException {
+	public ClientResponse sendSM(TextMessage message) throws BaseException{
 		try {
 			messageClient.sms().send(MessageBuilder.withPayload(message).build());
 			// sms.send(MessageBuilder.withPayload(message).build());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ThirdAPIException("访问消息中心失败。");
+			throw new BaseException("访问消息中心失败。");
 		}
 		return ClientResponse.newInstance().ok().builder();
 	}
 
 	@Override
-	public ClientResponse push(IMessage message) throws ThirdAPIException {
+	public ClientResponse push(IMessage message) throws BaseException {
 		try {
 			messageClient.push().send(MessageBuilder.withPayload(message).build());
 			// push.send(MessageBuilder.withPayload(message).build());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ThirdAPIException("访问消息中心失败。");
+			throw new BaseException("访问消息中心失败。");
 		}
 		return ClientResponse.newInstance().ok().builder();
 	}
 
 	@Override
-	public void pushAsyn(IMessage message) throws ThirdAPIException {
+	public void pushAsyn(IMessage message) throws BaseException {
 
 	}
 
